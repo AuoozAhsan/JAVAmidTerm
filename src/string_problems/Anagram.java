@@ -1,5 +1,6 @@
 package string_problems;
-
+import java.util.Arrays;
+import java.util.Scanner;
 public class Anagram {
 
     /** INSTRUCTIONS
@@ -14,5 +15,29 @@ public class Anagram {
      */
 
     // Implement Here
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter your first word: ");
+        String word1 = input.nextLine();
+        System.out.println("Enter your second word: ");
+        String word2 = input.nextLine();
+
+        if(word1.length() == word2.length()) {
+            char[] charWord1 = word1.toCharArray();
+            char[] charWord2 = word2.toCharArray();
+
+            Arrays.sort(charWord1);
+            Arrays.sort(charWord2);
+
+            boolean isEqual = Arrays.equals(charWord1, charWord2);
+            if (isEqual) {
+                System.out.println(word1 + " and " + word2 + " are anagram");
+            } else {
+                System.out.println(word1 + " and " + word2 + " are not anagram");
+            }
+
+        }
+
+    }
 
 }

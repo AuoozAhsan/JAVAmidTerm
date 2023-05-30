@@ -8,19 +8,23 @@ public class FindLowestDifference {
      * HINT: The lowest number that isn't shared between these arrays is 1
      */
 
-     public int minimumArray1(int[] array1, int n){
-       int a = array1[0];
-       for(int i =1; i < n; i ++)
-           a = Math.min(a, array1[i]);
-       return a;
-     }
+    static int lowestDifference(int[] array, int n)
+    {
 
-    public int minimumArray2(int[] array2, int m){
-        int b = array2[0];
-        for(int i =1; i < m; i ++)
-            b = Math.min(b, array2[i]);
-        return b;
+        int difference = Integer.MAX_VALUE;
+
+
+
+        for (int i = 0; i < n-1; i++)
+            for (int j = i + 1; j < n; j++)
+                if (Math.abs((array[i] - array[j]) )< difference)
+                    difference = Math.abs((array[i] - array[j]));
+
+        return difference;
     }
+
+
+
 
 
 
@@ -30,8 +34,8 @@ public class FindLowestDifference {
         int[] array1 = {30, 12, 5, 9, 2, 20, 33, 1, -15};
         int[] array2 = {18, 25, 41, 47, 17, 36, 14, 19, -15};
 
-
-
+            System.out.println("the minimum difference between array1 and array2 is "+
+                    lowestDifference(array1, array1.length));
     }
 
 

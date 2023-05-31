@@ -15,20 +15,20 @@ public class UseQueue {
 
     public static void main(String[] args) {
 
-        Queue<String> queue = new LinkedList<>();
+        Queue<String> shoppingList = new LinkedList<>();
 
-        queue.add("Dress");
-        queue.add("Shoes");
-        queue.add("Jewellery");
+        shoppingList.add("Dress");
+        shoppingList.add("Shoes");
+        shoppingList.add("Jewellery");
 
-        System.out.println("that will be perfect if you'll buy me " + queue);
+        System.out.println("that will be perfect if you'll buy me " + shoppingList);
         System.out.println("No honey, the business is slow these days");
 
-        System.out.println("Ok! fine, just  "  +queue.peek());
+        System.out.println("Ok! fine, just  "  +shoppingList.peek());
 
-        System.out.println("Ok sure, " + queue.poll() + ", I'll get that for you");
+        System.out.println("Ok sure, " + shoppingList.poll() + ", I'll get that for you");
 
-        System.out.println("and " + queue.remove() + " too, be happy");
+        System.out.println("and " + shoppingList.remove() + " too, be happy");
     }
 
     }

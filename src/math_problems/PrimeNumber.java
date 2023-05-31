@@ -20,11 +20,13 @@ public class PrimeNumber {
 
 
     public static void main(String[] args) {
+
+        System.out.println("Prime no from 2 to 100000 are ");
         int minimum = 2, maximum = 1000000;
         for(int n = minimum; n <= maximum; n++){
             if(primeNumber(n)){
-                System.out.println("Prime no from 2 to 100000 are ");
-                System.out.print(n);
+
+                System.out.print(n + " ");
             }
         }
     }

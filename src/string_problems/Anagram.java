@@ -32,11 +32,13 @@ public class Anagram {
             boolean isEqual = Arrays.equals(charWord1, charWord2);
             if (isEqual) {
                 System.out.println(word1 + " and " + word2 + " are anagram");
+
             } else {
                 System.out.println(word1 + " and " + word2 + " are not anagram");
             }
-
         }
+
+
 
     }
 

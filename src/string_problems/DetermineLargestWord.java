@@ -19,6 +19,8 @@ public class DetermineLargestWord {
         }
 
     private static Map<String, String> convertToMap(String s) {
+        Map<Integer, String> wordNLength = findTheLargestWord(s);
+        Map<String, String> recordMap = convertToMap(s);
         Map<String, String> map = new HashMap<>();
         for(Map.Entry<Integer,String> entry : wordNLength.entrySet()){
             int length = entry.getKey();

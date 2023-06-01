@@ -2,7 +2,7 @@ package company_app_design;
 
 import java.util.Scanner;
 
-public class EmployeeInfo {
+public class EmployeeInfo extends EmployeeInterfaceImplement {
 
     /** INSTRUCTIONS
      *
@@ -30,6 +30,10 @@ public class EmployeeInfo {
     }
 
     public EmployeeInfo(String name, int employeeId) {
+
+    }
+
+    public EmployeeInfo() {
 
     }
 
@@ -71,6 +75,34 @@ public class EmployeeInfo {
         // Calculate pension
 
         return total;
+    }
+
+    @Override
+    public int employeeId() {
+
+        return 0;
+    }
+
+    @Override
+    public String employeeName() {
+        return null;
+    }
+
+    @Override
+    public void assignDepartment() {
+
+    }
+
+    @Override
+    public int calculateSalary() {
+        int grossPay = 58879;
+        int payPeriodPerYear = 12;
+        return grossPay * payPeriodPerYear;
+    }
+
+    @Override
+    public void benefits() {
+
     }
 
     private static class DateConversion {

@@ -50,11 +50,11 @@ public class UseArrayList {
         System.out.println("WE SUCCESSFULLY ESTABLISHED A JDBC CONNECTION!");
     }
     // Here I am retrieving Data from the DataBase 'world' table 'country'
-    String query = "SELECT * FROM actor WHERE actor_id = \"12\"";
+        String query = "SELECT * FROM country WHERE name = \"Anguilla\" and Region=\"Caribbean\"";
 
-    String insertQuery = "INSERT INTO country (name, region) VALUES ('Dalal', 'Algeria');";
+    String insertQuery = "INSERT INTO country (name, region) VALUES ('Auooz', 'Pakistan');";
 
-    String retrieveQuery="SELECT* FROM country WHERE name =\"Dalal\" and region =\"Algeria\"";
+    String retrieveQuery="SELECT* FROM country WHERE name =\"Auooz\" and region =\"Pakistan\"";
 
 
 

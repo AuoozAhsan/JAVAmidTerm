@@ -17,18 +17,16 @@ public class CsvReader {
      **/
 
     public static void main(String[] args) {
-        // define the path to the file.
+
+
         String csvFilePath = System.getProperty("user.dir") + "\\src\\CodeLab\\data\\roster.csv";
-        //Read the csv file and obtain the roster
+
         List<Student> roster = readCsvFile(csvFilePath);
 
-        if (!roster.isEmpty()) { //check if the roster is not empty.
-            generateMessages(roster); // generate message for each student in the roster.
-            double averageScore = calculateAverageScore(roster);
-            System.out.println("Average score of the class: " + averageScore);
-        } else {
-            System.out.println("No valid data found in the CSV file.");
-        }
+            generateMessages(roster);
+            double averageOfAllClass = average(roster);
+            System.out.println("Average score of the class: " + averageOfAllClass);
+
     }
 
     private static List<Student> readCsvFile(String csvFilePath) {
@@ -86,18 +84,18 @@ public class CsvReader {
         }
     }
 
-    private static double calculateAverageScore(List<Student> roster) {
+    private static double average(List<Student> roster) {
         if (roster.isEmpty()) {
             return 0.0;
         }
-        int totalSolutions = 0;
-        int studentCount = 0;
+        int questions = 0;
+        int students = 0;
         for (Student student : roster) {
-            totalSolutions += student.getNumberOfExercisesSolved();
-            studentCount++;
+            questions += student.getNumberOfExercisesSolved();
+            students++;
         }
 
-        double averageScore = (double) totalSolutions / studentCount;
+        int averageScore = questions / students;
         return averageScore;}
 
 

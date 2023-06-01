@@ -2,6 +2,7 @@ package data_structures;
 
 import databases.SharedStepsDatabase;
 
+import java.sql.*;
 import java.util.*;
 
 public class UseMap {
@@ -14,6 +15,9 @@ public class UseMap {
      *
      * Use For-Each loop and While-loop with Iterator to retrieve data.
      */
+
+    private static Properties prop;
+    private static Connection connection;
 
     public static void main(String[] args) throws Exception {
 
@@ -31,10 +35,36 @@ public class UseMap {
             System.out.println("VALUE: " + map.get(key));
         }
 
-        String tableName = "`test_hash_map`";
+        String tableName = "Employees";
         SharedStepsDatabase sql = new SharedStepsDatabase();
 
-        // IMPLEMENT HERE
-
     }
+        // IMPLEMENT HERE
+        static class SharedStepsDatabase {
+            private String url = "jdbc:mysql://localhost/world?serverTimezone=UTC&useSSL=false";
+            private String username = "root";
+            private String password = "Aydin1218";
+
+            public void insertData(String tableName, HashMap<Object, Object> map) {
+                try {
+                    connection = DriverManager.getConnection(url, username, password);
+                    String insertQuery = "INSERT INTO " + tableName + " (key_column, value_column) VALUES (8454, \"lamia\")";
+                    PreparedStatement statement = connection.prepareStatement(insertQuery);
+
+                    for (Map.Entry<Object, Object> entry : map.entrySet()) {
+                        Object key = entry.getKey();
+                        Object value = entry.getValue();
+                        statement.setObject(1, key);
+                        statement.setObject(2, value);
+                        statement.executeUpdate();
+                    }
+
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+
+        }
 }

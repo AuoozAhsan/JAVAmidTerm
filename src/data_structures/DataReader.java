@@ -31,10 +31,10 @@ public class DataReader {
             FileReader fr = new FileReader(txtFile);
             BufferedReader br = new BufferedReader(fr);
 
-            String line;
+            String file;
 
-            while((line = br.readLine()) != null) {
-                System.out.println(line);
+            while((file = br.readLine()) != null) {
+                System.out.println(file);
             }
 
         } catch (IOException ioe) {

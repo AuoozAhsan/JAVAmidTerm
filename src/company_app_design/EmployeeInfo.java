@@ -23,14 +23,20 @@ public class EmployeeInfo extends EmployeeInterfaceImplement {
 
     // Make sure to declare and use static, non-static & final fields
     static final String companyName = "Tesla";
+    private int id;
+    private String name;
+    private String dept;
+    private String benefits;
+
 
     // You must have/use multiple constructors to initialize instance variables that you will create above
     public EmployeeInfo(int employeeId) {
-
+        this.id = employeeId;
     }
 
     public EmployeeInfo(String name, int employeeId) {
-
+        this.id = employeeId;
+        this.name = name;
     }
 
     public EmployeeInfo() {
@@ -79,30 +85,53 @@ public class EmployeeInfo extends EmployeeInterfaceImplement {
 
     @Override
     public int employeeId() {
-
-        return 0;
+        return this.id;
     }
 
     @Override
     public String employeeName() {
-        return null;
+        return this.name;
     }
 
     @Override
-    public void assignDepartment() {
+    public String assignDepartment() {
+        Scanner stdin = new Scanner(System.in);
+        System.out.println("Enter your ID between 1 to 100");
+        int id = stdin.nextInt();
 
+        if(id <= 20){
+            System.out.println(dept = "repair cars");
+        }else if(id >=21 && id <= 40){
+            System.out.println(dept = "handle auctions");
+        }else if(id >=41 && id <= 60){
+            System.out.println(dept = "oil change");
+        } else if (id >=61 && id <= 80) {
+            System.out.println(dept = "manage hr");
+        } else if (id >=81 && id <= 100) {
+            System.out.println(dept = "buy and sell");
+        }else
+             return "";
+             return "";
     }
+
 
     @Override
     public int calculateSalary() {
-        int grossPay = 58879;
+        Scanner stdin = new Scanner(System.in);
+        System.out.println("Enter your grossPay");
+        int grossPay = stdin.nextInt();
         int payPeriodPerYear = 12;
+        System.out.print("Your salary is ");
         return grossPay * payPeriodPerYear;
     }
 
     @Override
-    public void benefits() {
-
+    public double benefits() {
+        int salary = 60000;
+        double benefitPercentage = 0.1;
+        double benefits = salary * benefitPercentage;
+        System.out.println("The benefits of this emplyee salary is: " + benefits);
+        return benefitPercentage;
     }
 
     private static class DateConversion {
@@ -164,4 +193,5 @@ public class EmployeeInfo extends EmployeeInterfaceImplement {
             return monthNumber;
         }
     }
-}
+
+    }

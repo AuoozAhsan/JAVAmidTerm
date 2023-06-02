@@ -1,5 +1,8 @@
 package string_problems;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class DuplicateWord {
 
     /** INSTRUCTIONS
@@ -8,9 +11,32 @@ public class DuplicateWord {
      */
 
     public static void main(String[] args) {
-        String st = "Java is a programming Language. Java is also an Island of Indonesia. Java is widely used language";
+        String string = "Java is a programming Language. Java is also an Island of Indonesia. Java is widely used language";
+    duplicateWords(string);
+    }
+        public static void duplicateWords(String string){
+        String[] words = string.split("\\s+");
 
-        // Implement here
+        Map<String, Integer> wordFrequency = new HashMap<>();
+
+        int totalLength = 0;
+        for (String word : words) {
+            wordFrequency.put(word, wordFrequency.getOrDefault(word, 0) + 1);
+            totalLength += word.length();
+        }
+
+
+        double averageLength = (double) totalLength / words.length;
+
+        System.out.println("Duplicate words and their occurrences:");
+        for (Map.Entry<String, Integer> entry : wordFrequency.entrySet()) {
+            if (entry.getValue() > 1) {
+                System.out.println(entry.getKey() + " - " + entry.getValue() + " times");
+            }
+        }
+
+        // Print average word length
+        System.out.println("Average word length: " + averageLength);
 
     }
 

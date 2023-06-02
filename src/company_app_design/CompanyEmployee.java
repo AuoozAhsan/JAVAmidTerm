@@ -14,8 +14,18 @@ public class CompanyEmployee {
      */
     public static void main(String[] args) {
 
+        EmployeeInfo employeeInfo1 = new EmployeeInfo(1);
+        System.out.println(("the employee id is " + employeeInfo1.employeeId()));
+
+        EmployeeInfo employeeInfo2 = new EmployeeInfo("Auooz", 1);
+        System.out.println(("the employee name is " + employeeInfo2.employeeName()));
+
         EmployeeInfo employeeInfo = new EmployeeInfo();
         System.out.println(employeeInfo.calculateSalary());
+        System.out.println(employeeInfo.benefits());
+        System.out.println(employeeInfo.assignDepartment());
+
+
 
     }
 }

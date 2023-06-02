@@ -54,7 +54,15 @@ public class EmployeeInfo extends EmployeeInterfaceImplement {
      */
     public static int calculateAnnualBonus(int salary, int performanceGrade) {
         int total = 0;
-
+        if (performanceGrade == 1) {
+            total = (int) (salary * 0.1);
+        } else if (performanceGrade == 2) {
+            total = (int) (salary * 0.06);
+        } else if (performanceGrade == 3) {
+            total = (int) (salary * 0.03);
+        } else {
+            total = 0;
+        }
 
         return total;
     }
@@ -67,23 +75,36 @@ public class EmployeeInfo extends EmployeeInterfaceImplement {
 
     e.g. - Employee will receive 5% of salary as pension for every year they are with the company
      */
+//    public static int calculateEmployeePension() {
+//        int total = 0;
+//        Scanner sc = new Scanner(System.in);
+//        System.out.println("Please enter start date in format (example: May,2015): ");
+//        String joiningDate = sc.nextLine();
+//        System.out.println("Please enter today's date in format (example: August,2017): ");
+//        String todaysDate = sc.nextLine();
+//        String convertedJoiningDate = DateConversion.convertDate(joiningDate);
+//        String convertedTodaysDate = DateConversion.convertDate(todaysDate);
+//
+//        // Figure out how to extract the number of years the employee has been with the company, using the above 2 dates
+//        // Calculate pension
+//
+//        return total;
+//    }
+
     public static int calculateEmployeePension() {
         int total = 0;
         Scanner sc = new Scanner(System.in);
         System.out.println("Please enter start date in format (example: May,2015): ");
         String joiningDate = sc.nextLine();
-        System.out.println("Please enter today's date in format (example: August,2017): ");
-        String todaysDate = sc.nextLine();
         String convertedJoiningDate = DateConversion.convertDate(joiningDate);
-        String convertedTodaysDate = DateConversion.convertDate(todaysDate);
-
-        // Figure out how to extract the number of years the employee has been with the company, using the above 2 dates
-        // Calculate pension
-
-        return total;
+        if (convertedJoiningDate.isEmpty()) {
+            return 0;
+        }
+        System.out.println("Please enter today's date in format (example: August,2017): ");
+        return 0;
     }
 
-    @Override
+        @Override
     public int employeeId() {
         return this.id;
     }
@@ -144,6 +165,7 @@ public class EmployeeInfo extends EmployeeInterfaceImplement {
             String actualDate = monthDate + "/" + extractMonth[1];
             return actualDate;
         }
+    }
 
         public static int whichMonth(String givenMonth) {
             Months month = Months.valueOf(givenMonth);
@@ -194,4 +216,3 @@ public class EmployeeInfo extends EmployeeInterfaceImplement {
         }
     }
 
-    }

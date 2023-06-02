@@ -24,6 +24,9 @@ public class CompanyEmployee {
         System.out.println(employeeInfo.calculateSalary());
         System.out.println(employeeInfo.benefits());
         System.out.println(employeeInfo.assignDepartment());
+        System.out.println(EmployeeInfo.calculateAnnualBonus(8000, 3));
+        System.out.println(EmployeeInfo.calculateEmployeePension());
+        System.out.println(EmployeeInfo.whichMonth(String.valueOf(8)));
 
 
 

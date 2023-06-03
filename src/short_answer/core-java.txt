@@ -88,46 +88,67 @@ OOPs Concepts:
 - Polymorphism
 
 What is Java Package and which package is imported by default?
-Answer:
+Answer: In Java, the package is the collection of Java classes and interfaces. When we use the classes of a particular package, we need to import that particular package in which that classes are defined. The class uses the fully qualified name that includes the package name. In most of the basic Java programs, we do not import any package. Here, a question arises that when we do not import any package then how Java programs allow us to use classes defined in the particular package. JVM internally resolve this problem by importing java.lang package by default.
+Java compiler imports java.lang package internally by default. It provides the fundamental classes that are necessary to design a basic Java program. The important classes are Object, which is the root of the class hierarchy, and Class, instances of which represent classes at run time.
 
 What is an API? List some API's that you have used so far.
-Answer:
+Answer: An API, which stands for application programming interface, is a set of protocols that enable different software components to communicate and transfer data. Developers use APIs to bridge the gaps between small, discrete chunks of code in order to create applications that are powerful, resilient, secure, and able to meet user needs. Even though you can't see them, APIs are everywhere—working continuously in the background to power the digital experiences that are essential to our modern lives.
+Salesforce, Notion, Discord, Pinterest, and DoorDash.
 
 Does java support multiple inheritance? Why or why not?
-Answer:
+Answer: Note: Java doesn’t support Multiple Inheritance
+Multiple Inheritance is a feature of an object-oriented concept, where a class can inherit properties of more than one parent class. The problem occurs when there exist methods with the same signature in both the superclasses and subclass. On calling the method, the compiler cannot determine which class method to be called and even on calling which class method gets the priority.
 
 What is method overloading? List all of the different ways to overload.
-Answer:
+Answer: Method Overloading allows different methods to have the same name, but different signatures where the signature can differ by the number of input parameters or type of input parameters, or a mixture of both.
+Different Ways of Method Overloading in Java
+Changing the Number of Parameters.
+Changing Data Types of the Arguments.
+Changing the Order of the Parameters of Methods
 
 Explain exceptions in java and how to handle them.
-Answer:
+Answer: Exception Handling in Java is one of the effective means to handle the runtime errors so that the regular flow of the application can be preserved. Java Exception Handling is a mechanism to handle runtime errors such as ClassNotFoundException, IOException, SQLException, RemoteException, etc.
+The run-time system searches the call stack to find the method that contains a block of code that can handle the occurred exception. The block of the code is called an Exception handler.
+The run-time system starts searching from the method in which the exception occurred, and proceeds through the call stack in the reverse order in which methods were called.
+If it finds an appropriate handler, then it passes the occurred exception to it. An appropriate handler means the type of the exception object thrown matches the type of the exception object it can handle.
+If the run-time system searches all the methods on the call stack and couldn’t have found the appropriate handler, then the run-time system handover the Exception Object to the default exception handler, which is part of the run-time system. This handler prints the exception information in the following format and terminates the program abnormally.
 
 What is static keyword? When and how do we use it?
-Answer:
+Answer: The static keyword in Java is mainly used for memory management. The static keyword in Java is used to share the same variable or method of a given class. The users can apply static keywords with variables, methods, blocks, and nested classes.
 
 What is final keyword? When and how do we use it?
-Answer:
+Answer:The final keyword is used to declare constants in Java. It can be used with variables, methods, and classes. A final variable cannot be modified once it is initialized. A final method cannot be overridden by subclasses. A final class cannot be extended by other classes. The final keyword is a modifier that restricts the reassignment, overriding, or inheritance of the entity it is applied to.
 
 Explain the difference between final, finally and finalize?
-Answer:
+Answer: Final is used to define a constant variable, a method that cannot be overridden, or a class that cannot be extended.
+Finally is used in try-catch blocks to specify a block of code that will be executed regardless of whether an exception is thrown or not.
+Finalize is a method used to perform cleaning actions before destroying a particular object.
 
 What is a constructor?
-Answer:
+Answer: In Java, a constructor is a block of codes similar to the method. It is called when an instance of the class is created. At the time of calling constructor, memory for the object is allocated in the memory.
+It is a special type of method which is used to initialize the object
+Every time an object is created using the new() keyword, at least one constructor is called.
 
 Can we have multiple constructors in a class?
-Answer:
+Answer: There can be multiple constructors in a class. However, the parameter list of the constructors should not be same. This is known as constructor overloading.
 
 If we don't have a constructor declared, what is called during the object creation?
-Answer:
+Answer: If you don't specify one, you will get a default constructor with no parameters. So when you do this: class Test { } You will actually get this: class Test { Test () { super (); // This is a call to the constructor of the Object class. } } The constructor lets you create instances of the class with the new keyword.
 
 What is "this" keyword in Java? When would we use it?
-Answer:
+Answer: In Java, ‘this’ is a reference variable that refers to the current object, or can be said “this” in Java is a keyword that refers to the current object instance. It can be used to call current class methods and fields, to pass an instance of the current class as a parameter, and to differentiate between the local and instance variables. Using “this” reference can improve code readability and reduce naming conflicts.
 
 What is "super" keyword in Java? What are some scenarios we would use it?
-Answer:
+Answer: In Java, the super keyword is used to refer to the parent class of a subclass. Here are some of its characteristics:
+super is used to call a superclass constructor: When a subclass is created, its constructor must call the constructor of its parent class. This is done using the super() keyword, which calls the constructor of the parent class.
+super is used to call a superclass method: A subclass can call a method defined in its parent class using the super keyword. This is useful when the subclass wants to invoke the parent class’s implementation of the method in addition to its own.
+super is used to access a superclass field: A subclass can access a field defined in its parent class using the super keyword. This is useful when the subclass wants to reference the parent class’s version of a field.
+super must be the first statement in a constructor: When calling a superclass constructor, the super() statement must be the first statement in the constructor of the subclass.
+super cannot be used in a static context: The super keyword cannot be used in a static context, such as in a static method or a static variable initializer.
+super is not required to call a superclass method: While it is possible to use the super keyword to call a method in the parent class, it is not required. If a method is not overridden in the subclass, then calling it without the super keyword will invoke the parent class’s implementation.
 
 What does JVM stand for?
-Answer:
+Answer: JVM(Java Virtual Machine) acts as a run-time engine to run Java applications. JVM is the one that actually calls the main method present in a java code. JVM is a part of JRE(Java Runtime Environment).
 
 Is JVM platform independent?
 Answer:
@@ -202,7 +223,7 @@ What is multithreading in Java?
 Answer:
 
 What is synchronization in Java?
-Answer:
+Answer:0
 
 What is a Framework?
 Answer:
@@ -211,13 +232,24 @@ What are the testing Frameworks available in Java?
 Answer:
 
 What are jUnit and testNG?
-Answer:
+Answer: 1. JUnit :
+        JUnit framework is a Java framework that is widely used for testing. It supports the test to run by writing and testing along. JUnit framework was initially based on the SUnit framework which is used for Unit testing but then later it was updated with Java using Selenium WebDriver. JUnit is now is used as a standard when we need to perform testing in Java.
+
+        Features of JUnit testing framework :
+
+        JUnit does not support running parallel test simultaneously.
+        JUnit framework was updated in Java 8.
+        It helps to achieve test-driven programming while writing code.
+        JUnit is supported by many languages now.
+        2. TestNG :
+        TestNG is also a Java framework that facilitate to perform software tests in Java. It is a framework that runs the tests in classes. It makes classes for corresponding test and then process them. TestNG is an advanced framework that overcomes limitations found in JUnit. It is also being considered a flexible tool to performs tests as it uses the same Classes to run its all tests and manages threads to run procedures which makes overall functioning of the checking tests fast.
 
 What are the dependencies for this project?
 Answer:
 
 What is dependency injection in Java?
-Answer:
+Answer: Dependency injection is basically providing the objects that an object needs (its dependencies) instead of having it construct them itself. It's a very useful technique for testing, since it allows dependencies to be mocked or stubbed out.
 
 Explain what static binding and dynamic binding is?
-Answer:
+Answer: The binding which can be resolved at compile time by the compiler is known as static or early binding. The binding of all the static, private, and final methods is done at compile-time.
+In Dynamic binding compiler doesn’t decide the method to be called. Overriding is a perfect example of dynamic binding. In overriding both parent and child classes have the same method.
